@@ -3,10 +3,19 @@
 .header {
   background-color: white;
   box-shadow: 0 2px 8px #f0f1f2;
-  /* color:#fff */
+}
+
+.menu__input {
+  display: flex;
+  justify-content: space-between;
 }
 
 .search {
+  max-width: 30rem;
   display: flex;
-  align-self: center;
+}
+
+.filter {
+  display: flex;
+  justify-content: end;
 }
