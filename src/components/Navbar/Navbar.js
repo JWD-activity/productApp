@@ -1,11 +1,11 @@
 import React from 'react';
-import { Menu, Typography, Layout, Input, Space, Row, Col, Select } from 'antd';
+import { Layout, Input, Row, Col, Select } from 'antd';
 import './Navbar.css';
 
-const { Text } = Typography;
 const { Header } = Layout;
-const { Search } = Input;
 const { Option } = Select;
+const { Search } = Input;
+
 function Navbar() {
   return (
     <Header
