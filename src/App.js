@@ -8,6 +8,7 @@ import { Layout } from 'antd';
 const { Footer, Content } = Layout;
 
 function App() {
+  console.log('render App');
   return (
     <>
       <Navbar />
@@ -16,7 +17,7 @@ function App() {
           <ProductList />
         </Content>
       </ProductsContextProvider>
-      <Footer>Footer</Footer>
+      <Footer></Footer>
     </>
   );
 }

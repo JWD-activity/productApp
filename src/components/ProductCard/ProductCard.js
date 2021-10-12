@@ -4,6 +4,7 @@ import { Card, Col } from 'antd';
 const { Meta } = Card;
 
 function ProductCard({ loading, name, imgUrl, price }) {
+  console.log('render ProductCard');
   return (
     <Col className='gutter-row' sx={24} sm={8} lg={6}>
       {!loading ? (

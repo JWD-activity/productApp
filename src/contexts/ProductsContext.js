@@ -20,9 +20,7 @@ const ProductsContextProvider = ({ children }) => {
       .catch((err) => {
         dispatchProducts({ type: 'FETCH_ERROR' });
       });
-  }, [state.loading]);
-
-  console.log('sate: ', state);
+  }, []);
 
   return (
     <ProductsContext.Provider value={{ state }}>

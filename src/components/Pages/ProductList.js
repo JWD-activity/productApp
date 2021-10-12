@@ -4,7 +4,7 @@ import ProductCard from '../../components/ProductCard/ProductCard';
 import { Row } from 'antd';
 function ProductList() {
   const { state } = useContext(ProductsContext);
-
+  console.log('render productList');
   return (
     <Row
       justify='space-around'

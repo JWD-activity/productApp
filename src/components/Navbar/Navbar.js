@@ -7,6 +7,7 @@ const { Option } = Select;
 const { Search } = Input;
 
 function Navbar() {
+  console.log('render Navbar');
   return (
     <Header
       className='header'
