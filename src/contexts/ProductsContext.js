@@ -4,17 +4,12 @@ import axios from 'axios';
 
 export const ProductsContext = createContext();
 
-const initialState = {
-  loading: true,
-  error: '',
-  post: {},
-};
-
 const ProductsContextProvider = ({ children }) => {
-  const [products, dispatchProducts] = useReducer(
-    fetchingReducer,
-    initialState
-  );
+  const [state, dispatchProducts] = useReducer(fetchingReducer, {
+    loading: true,
+    error: '',
+    post: [],
+  });
 
   useEffect(() => {
     axios
@@ -25,10 +20,12 @@ const ProductsContextProvider = ({ children }) => {
       .catch((err) => {
         dispatchProducts({ type: 'FETCH_ERROR' });
       });
-  }, []);
+  }, [state.loading]);
+
+  console.log('sate: ', state);
 
   return (
-    <ProductsContext.Provider value={products}>
+    <ProductsContext.Provider value={{ state }}>
       {children}
     </ProductsContext.Provider>
   );

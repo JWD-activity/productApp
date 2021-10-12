@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useContext, useState, useEffect } from 'react';
+import { ProductsContext } from '../../contexts/ProductsContext';
 import { Card } from 'antd';
 
 const { Meta } = Card;
 
 function ProductCard() {
-  return (
+  const { state } = useContext(ProductsContext);
+  const [loading, setLoading] = useState(true);
+
+  return !state.loading ? (
     <Card
       hoverable
       style={{ width: 240 }}
@@ -17,6 +21,8 @@ function ProductCard() {
     >
       <Meta title='Europe Street beat' description='www.instagram.com' />
     </Card>
+  ) : (
+    <Card loading={loading}></Card>
   );
 }
 
