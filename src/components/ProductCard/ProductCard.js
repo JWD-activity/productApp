@@ -1,28 +1,19 @@
-import React, { useContext, useState, useEffect } from 'react';
-import { ProductsContext } from '../../contexts/ProductsContext';
-import { Card } from 'antd';
+import React from 'react';
+import { Card, Col } from 'antd';
 
 const { Meta } = Card;
 
-function ProductCard() {
-  const { state } = useContext(ProductsContext);
-  const [loading, setLoading] = useState(true);
-
-  return !state.loading ? (
-    <Card
-      hoverable
-      style={{ width: 240 }}
-      cover={
-        <img
-          alt='example'
-          src='https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png'
-        />
-      }
-    >
-      <Meta title='Europe Street beat' description='www.instagram.com' />
-    </Card>
-  ) : (
-    <Card loading={loading}></Card>
+function ProductCard({ loading, name, imgUrl, price }) {
+  return (
+    <Col className='gutter-row' sx={24} sm={8} lg={6}>
+      {!loading ? (
+        <Card hoverable cover={<img alt={name} src={imgUrl} />}>
+          <Meta title={name} description={`$${price}`} />
+        </Card>
+      ) : (
+        <Card loading={loading}></Card>
+      )}
+    </Col>
   );
 }
 

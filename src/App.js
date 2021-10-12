@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import './App.css';
 import 'antd/dist/antd.css';
 import Navbar from './components/Navbar/Navbar';
-import ProductCard from './components/ProductCard/ProductCard';
+import ProductList from './components/Pages/ProductList';
 import ProductsContextProvider from './contexts/ProductsContext';
 import { Layout } from 'antd';
 const { Footer, Content } = Layout;
@@ -12,8 +12,8 @@ function App() {
     <>
       <Navbar />
       <ProductsContextProvider>
-        <Content style={{ padding: '6rem 3rem' }}>
-          <ProductCard />
+        <Content style={{ padding: '8rem 3rem' }}>
+          <ProductList />
         </Content>
       </ProductsContextProvider>
       <Footer>Footer</Footer>
