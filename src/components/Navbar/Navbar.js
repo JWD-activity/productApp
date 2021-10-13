@@ -1,26 +1,49 @@
 import React from 'react';
-import { Layout, Input, Row, Col, Select } from 'antd';
-import './Navbar.css';
-
-const { Header } = Layout;
-const { Option } = Select;
-const { Search } = Input;
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
 
 function Navbar() {
   console.log('render Navbar');
+
   return (
-    <Header
-      className='header'
-      style={{ position: 'fixed', zIndex: 1, width: '100%' }}
-    >
-      <nav className='menu'>
-        <Row align='middle'>
-          <Col className='logo' sm={2}>
+    <header>
+      <Box sx={{ flexGrow: 1 }} className='menu'>
+        <AppBar position='static'>
+          <Toolbar>
+            <IconButton
+              size='large'
+              edge='start'
+              color='inherit'
+              aria-label='menu'
+              sx={{ mr: 2 }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
+              News
+            </Typography>
+          </Toolbar>
+        </AppBar>
+      </Box>
+    </header>
+  );
+}
+
+export default Navbar;
+
+{
+  /* <Row>
+          <Col className='logo'>
             <a href='/'>Products</a>
           </Col>
-          <Col sm={22}>
+          <Col>
             <Row className='menu__input'>
-              <Col className='search' sm={14}>
+              <Col className='search'>
                 <Search
                   aria-label='Search for products '
                   placeholder='Search'
@@ -28,10 +51,8 @@ function Navbar() {
                   enterButton
                 />
               </Col>
-              <Col className='filter' sm={10}>
+              <Col className='filter'>
                 <Select
-                  showSearch
-                  style={{ width: 200 }}
                   placeholder='Sort by'
                   aria-label='sorting select option'
                 >
@@ -43,10 +64,8 @@ function Navbar() {
               </Col>
             </Row>
           </Col>
-        </Row>
-      </nav>
-    </Header>
-  );
+        </Row> */
 }
-
-export default Navbar;
+{
+  /* </nav> */
+}
