@@ -1,71 +1,88 @@
 import React from 'react';
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+import InputLabel from '@mui/material/InputLabel';
+import Input from '@mui/material/Input';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import Grid from '@mui/material/Grid';
+import SearchIcon from '@mui/icons-material/Search';
+
+const ariaLabel = { 'aria-label': 'search field' };
 
 function Navbar() {
   console.log('render Navbar');
 
+  const [sorting, setSorting] = React.useState('');
+
+  const handleChange = (event) => {
+    setSorting(event.target.value);
+  };
+
   return (
-    <header>
-      <Box sx={{ flexGrow: 1 }} className='menu'>
-        <AppBar position='static'>
-          <Toolbar>
-            <IconButton
-              size='large'
-              edge='start'
-              color='inherit'
-              aria-label='menu'
-              sx={{ mr: 2 }}
+    <AppBar position='static'>
+      <Toolbar component='nav'>
+        <Typography
+          variant='h6'
+          component='h1'
+          sx={{ flexGrow: 1, display: 'flex' }}
+        >
+          Products
+        </Typography>
+        <Grid
+          container
+          sx={{
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}
+        >
+          <Grid container item sx={{ alignItems: 'center', margin: '0 5rem' }}>
+            <Grid item>
+              <SearchIcon sx={{ color: '#fff', marginRight: '1rem' }} />
+            </Grid>
+            <Grid item>
+              <Input
+                placeholder='Search'
+                InputProps={ariaLabel}
+                color='secondary'
+              />
+            </Grid>
+          </Grid>
+          <Grid item>
+            <FormControl
+              fullWidth
+              sx={{
+                m: 1,
+                minWidth: 80,
+                flexDirection: 'row',
+                alignItems: 'center',
+              }}
             >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
-              News
-            </Typography>
-          </Toolbar>
-        </AppBar>
-      </Box>
-    </header>
+              <InputLabel id='sort-by' color='secondary'>
+                Sort By
+              </InputLabel>
+              <Select
+                labelId='sort-by'
+                id='sort-by-select'
+                value={sorting}
+                label='Sort by'
+                onChange={handleChange}
+                sx={{ minWidth: '20rem' }}
+                color='secondary'
+              >
+                <MenuItem value={1}>Apphbeically, A-Z</MenuItem>
+                <MenuItem value={2}>Apphbeically, Z-A</MenuItem>
+                <MenuItem value={3}>Row Price</MenuItem>
+                <MenuItem value={34}>High Price</MenuItem>
+              </Select>
+            </FormControl>
+          </Grid>
+        </Grid>
+      </Toolbar>
+    </AppBar>
   );
 }
 
 export default Navbar;
-
-{
-  /* <Row>
-          <Col className='logo'>
-            <a href='/'>Products</a>
-          </Col>
-          <Col>
-            <Row className='menu__input'>
-              <Col className='search'>
-                <Search
-                  aria-label='Search for products '
-                  placeholder='Search'
-                  // onSearch={onSearch}
-                  enterButton
-                />
-              </Col>
-              <Col className='filter'>
-                <Select
-                  placeholder='Sort by'
-                  aria-label='sorting select option'
-                >
-                  <Option value='1'>Apphbeically, A-Z</Option>
-                  <Option value='2'>Apphbeically, Z-A</Option>
-                  <Option value='3'>Row Price</Option>
-                  <Option value='4'>High Price</Option>
-                </Select>
-              </Col>
-            </Row>
-          </Col>
-        </Row> */
-}
-{
-  /* </nav> */
-}
