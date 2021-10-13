@@ -12,7 +12,9 @@ function ProductList() {
   return (
     <Container component='main'>
       {state.loading ? (
-        <CircularProgress color='secondary' />
+        <Grid container sx={{ justifyContent: 'center' }}>
+          <CircularProgress color='secondary' />
+        </Grid>
       ) : (
         <Grid container spacing={{ xs: 6, sm: 8, lg: 10 }} columns={12}>
           {state.post.map((product) => (
