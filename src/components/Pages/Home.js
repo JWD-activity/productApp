@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { ProductsContext } from '../../contexts/ProductsContext';
-import ProductCard from '../../components/ProductCard/ProductCard';
+import ProductCard from '../ProductCard/ProductCard';
 import { Row } from 'antd';
 function ProductList() {
   const { state } = useContext(ProductsContext);
@@ -14,6 +14,7 @@ function ProductList() {
       {state.post.map((product) => (
         <ProductCard
           key={product._id}
+          id={product._id}
           imgUrl={product.imgURL}
           name={product.name}
           price={product.price}
