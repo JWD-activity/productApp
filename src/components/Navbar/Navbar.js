@@ -45,7 +45,7 @@ function Navbar() {
             <Grid item>
               <Input
                 placeholder='Search'
-                InputProps={ariaLabel}
+                // InputProps={ariaLabel}
                 color='secondary'
               />
             </Grid>
