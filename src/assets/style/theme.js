@@ -31,11 +31,12 @@ const theme = createTheme({
     MuiInput: {
       styleOverrides: {
         root: {
-          fontSize: '1.4rem',
+          fontSize: '1.6rem',
           fontWeight: 400,
           color: '#0A0C1B',
           backgroundColor: '#fff',
-          padding: '.5rem 1rem',
+          padding: '1.2rem',
+          borderRadius: '.5rem',
         },
       },
     },

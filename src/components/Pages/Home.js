@@ -2,17 +2,19 @@ import React, { useContext } from 'react';
 import { ProductsContext } from '../../contexts/ProductsContext';
 import ProductCard from '../ProductCard/ProductCard';
 import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
+import CircularProgress from '@mui/material/CircularProgress';
 
 function ProductList() {
   const { state } = useContext(ProductsContext);
   console.log('render productList');
   console.log(state.loading);
   return (
-    <Container>
+    <Container component='main'>
       {state.loading ? (
-        <div>Loding...</div>
+        <CircularProgress color='secondary' />
       ) : (
-        <div>
+        <Grid container spacing={{ xs: 6, sm: 8, lg: 10 }} columns={12}>
           {state.post.map((product) => (
             <ProductCard
               key={product._id}
@@ -23,7 +25,7 @@ function ProductList() {
               loading={state.loading}
             ></ProductCard>
           ))}
-        </div>
+        </Grid>
       )}
     </Container>
   );

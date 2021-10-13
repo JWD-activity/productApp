@@ -49,35 +49,35 @@ function Navbar() {
                 color='secondary'
               />
             </Grid>
-          </Grid>
-          <Grid item>
-            <FormControl
-              fullWidth
-              sx={{
-                m: 1,
-                minWidth: 80,
-                flexDirection: 'row',
-                alignItems: 'center',
-              }}
-            >
-              <InputLabel id='sort-by' color='secondary'>
-                Sort By
-              </InputLabel>
-              <Select
-                labelId='sort-by'
-                id='sort-by-select'
-                value={sorting}
-                label='Sort by'
-                onChange={handleChange}
-                sx={{ minWidth: '20rem' }}
-                color='secondary'
+            <Grid item>
+              <FormControl
+                fullWidth
+                sx={{
+                  m: 1,
+                  minWidth: 80,
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                }}
               >
-                <MenuItem value={1}>Apphbeically, A-Z</MenuItem>
-                <MenuItem value={2}>Apphbeically, Z-A</MenuItem>
-                <MenuItem value={3}>Row Price</MenuItem>
-                <MenuItem value={34}>High Price</MenuItem>
-              </Select>
-            </FormControl>
+                <InputLabel id='sort-by' color='secondary'>
+                  Sort By
+                </InputLabel>
+                <Select
+                  labelId='sort-by'
+                  id='sort-by-select'
+                  value={sorting}
+                  label='Sort by'
+                  onChange={handleChange}
+                  sx={{ minWidth: '20rem' }}
+                  color='secondary'
+                >
+                  <MenuItem value={1}>Apphbeically, A-Z</MenuItem>
+                  <MenuItem value={2}>Apphbeically, Z-A</MenuItem>
+                  <MenuItem value={3}>Row Price</MenuItem>
+                  <MenuItem value={34}>High Price</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
           </Grid>
         </Grid>
       </Toolbar>

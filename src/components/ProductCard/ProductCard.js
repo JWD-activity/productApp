@@ -1,29 +1,44 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Grid from '@mui/material/Grid';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
 
 function ProductCard({ loading, name, imgUrl, price, id }) {
-  // console.log('render ProductCard');
-  // const clickHandler = () => {
-  //   console.log('click');
-  // };
+  console.log('render ProductCard');
+  const clickHandler = () => {
+    console.log('click');
+  };
 
-  // return (
-  //   <Col className='gutter-row' sx={24} sm={8} lg={6}>
-  //     {!loading ? (
-  //       <Link to={`/product/${id}`}>
-  //         <Card
-  //           hoverable
-  //           cover={<img alt={name} src={imgUrl} onClick={clickHandler} />}
-  //         >
-  //           <Meta title={name} description={`$${price}`} />
-  //         </Card>
-  //       </Link>
-  //     ) : (
-  //       <Card loading={loading}></Card>
-  //     )}
-  //   </Col>
-  // );
-  return <>k</>;
+  return (
+    <Grid item xs={12} sm={6} md={4}>
+      {!loading ? (
+        <Link to={`/product/${id}`}>
+          <Card>
+            <CardMedia component='img' height='200' image={imgUrl} alt={name} />
+            <CardContent>
+              <Typography
+                gutterBottom
+                variant='h1'
+                component='div'
+                color='primary'
+              >
+                {name}
+              </Typography>
+              <Typography variant='body2' color='text.secondary'>
+                {`$${price}`}
+              </Typography>
+            </CardContent>
+          </Card>
+        </Link>
+      ) : (
+        <Card loading={loading}></Card>
+      )}
+    </Grid>
+  );
 }
 
 export default ProductCard;
