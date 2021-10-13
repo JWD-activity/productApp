@@ -17,32 +17,13 @@ function App() {
     <>
       <Navbar />
       <ProductsContextProvider>
-        <Content style={{ padding: '8rem 3rem' }}>
-          <ul>
-            <li>
-              <Link to='/'>Home</Link>
-            </li>
-            <li>
-              <Link to='/product'>Details</Link>
-            </li>
-          </ul>
-          <Route path='/product/:product_id'>
-            <Details />
-          </Route>
+        <Content>
           <Route exact path='/'>
             <Home />
           </Route>
-          {/* <Switch>
-            <Route exact path='/'>
-              <Home />
-            </Route>
-            <Route path='/product'>
-              <Details />
-            </Route>
-            <Route>
-              <Message path='/'></Message>
-            </Route>
-          </Switch> */}
+          <Route path='/product/:product_id'>
+            <Details />
+          </Route>
         </Content>
       </ProductsContextProvider>
       <Footer></Footer>
