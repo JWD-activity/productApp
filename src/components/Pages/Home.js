@@ -13,8 +13,6 @@ function ProductList() {
   const [searchParam] = useState(['name']);
   const [products, setProducts] = useState([]);
 
-  console.log('render productList');
-
   const searchProducts = (userInput) => {
     return post.filter((product) => {
       return searchParam.some((newProduct) => {
@@ -27,8 +25,11 @@ function ProductList() {
       });
     });
   };
+  //https://soshace.com/filtering-sorting-and-pagination-advanced-filtering-with-react-and-redux/
 
-  // https://stackoverflow.com/questions/7889006/sorting-arrays-in-javascript-by-object-key-value
+  //https://stackoverflow.com/questions/7889006/sorting-arrays-in-javascript-by-object-key-value
+
+  //https://dev.to/ramonak/react-how-to-dynamically-sort-an-array-of-objects-using-the-dropdown-with-react-hooks-195p
   const sortProducts = (userInput) => {
     switch (userInput) {
       case 'a-z':
@@ -42,10 +43,11 @@ function ProductList() {
         );
 
       case 'highToLow':
-        return products.sort((a, b) => Number(a.price) - Number(b.price));
+        return products.sort((a, b) => Number(b.price) - Number(a.price));
 
       case 'lowToHigh':
-        return products.sort((a, b) => Number(b.price) - Number(a.price));
+        return products.sort((a, b) => Number(a.price) - Number(b.price));
+
       default:
         return products;
     }
@@ -59,17 +61,10 @@ function ProductList() {
     if (search) setProducts(searchProducts(search));
   }, [search]);
 
-  useEffect(() => {
-    if (sorting) sortProducts(sorting);
-  }, [sorting]);
-
   const displayProducts = () => {
-    // if (search) {
-    //   setProducts(searchProducts(search, products));
-    // }
-
-    if (products.length > 0) {
-      return products.map((product) => (
+    let results = sortProducts(sorting);
+    if (results.length > 0) {
+      return results.map((product) => (
         <ProductCard
           key={product._id}
           id={product._id}
@@ -87,15 +82,6 @@ function ProductList() {
         </Alert>
       );
   };
-
-  // useEffect(() => {
-  //   searchProducts(search, products);
-  //   return () => {};
-  // }, [search]);
-
-  // useEffect(() => {
-  //   setProducts((prev) => sortProducts(sorting, prev));
-  // }, [sorting]);
 
   return (
     <Container component='main'>

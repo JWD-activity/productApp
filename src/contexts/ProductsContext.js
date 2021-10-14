@@ -12,6 +12,7 @@ const ProductsContextProvider = ({ children }) => {
 
   const setSort = (userInput) => {
     setSorting(userInput);
+    console.log(sorting);
   };
 
   const setSearchTerm = (userInput) => {

@@ -15,11 +15,11 @@ import { ProductsContext } from '../../contexts/ProductsContext';
 // const ariaLabel = { 'aria-label': 'search field' };
 
 function Navbar() {
-  console.log('render Navbar');
   const { search, setSearchTerm, sorting, setSort } =
     useContext(ProductsContext);
 
   const searchChangeHandler = (e) => {
+    console.log(e.target.value.trim());
     setSearchTerm(e.target.value.trim());
   };
 
@@ -69,11 +69,11 @@ function Navbar() {
                   alignItems: 'center',
                 }}
               >
-                <InputLabel id='sort-by' color='secondary'>
+                <InputLabel id='sort-by-label' color='secondary'>
                   Sort By
                 </InputLabel>
                 <Select
-                  labelId='sort-by'
+                  labelId='sort-by-label'
                   id='sort-by-select'
                   value={sorting}
                   label='Sort by'
@@ -81,10 +81,10 @@ function Navbar() {
                   sx={{ minWidth: '20rem' }}
                   color='secondary'
                 >
-                  <MenuItem value={'a-z'}>Apphbeically, A-Z</MenuItem>
-                  <MenuItem value={'z-a'}>Apphbeically, Z-A</MenuItem>
-                  <MenuItem value={'lowToHigh'}>Price, Low to High</MenuItem>
-                  <MenuItem value={'highToLow'}>Price, High to Low</MenuItem>
+                  <MenuItem value='a-z'>Apphbeically, A-Z</MenuItem>
+                  <MenuItem value='z-a'>Apphbeically, Z-A</MenuItem>
+                  <MenuItem value='lowToHigh'>Price, Low to High</MenuItem>
+                  <MenuItem value='highToLow'>Price, High to Low</MenuItem>
                 </Select>
               </FormControl>
             </Grid>
