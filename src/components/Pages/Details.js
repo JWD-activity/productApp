@@ -26,8 +26,6 @@ function Details() {
     getDtails();
   }, []);
 
-  console.log(details);
-
   return (
     <Container component='main'>
       {!details ? (

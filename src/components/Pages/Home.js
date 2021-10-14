@@ -59,11 +59,17 @@ function ProductList() {
 
   useEffect(() => {
     if (search) setProducts(searchProducts(search));
+    else setProducts(post);
   }, [search]);
 
   const displayProducts = () => {
     let results = sortProducts(sorting);
-    if (results.length > 0) {
+
+    if (loading) {
+      return <CircularProgress color='secondary' sx={{ padding: '5rem' }} />;
+    }
+
+    if (!loading && results.length > 0) {
       return results.map((product) => (
         <ProductCard
           key={product._id}
@@ -74,13 +80,17 @@ function ProductList() {
           loading={loading}
         />
       ));
-    } else
+    }
+
+    if (!loading && results.length === 0) {
       return (
-        <Alert severity='info'>
+        <Alert severity='info' sx={{ margin: '5rem' }}>
           <AlertTitle>Search results</AlertTitle>
-          Sorry We couldn't find any results— <strong>No results found.</strong>
+          Sorry We couldn't find any results —{' '}
+          <strong>No results found.</strong>
         </Alert>
       );
+    }
   };
 
   return (
@@ -91,11 +101,7 @@ function ProductList() {
         columns={12}
         sx={{ justifyContent: 'center' }}
       >
-        {loading ? (
-          <CircularProgress color='secondary' sx={{ padding: '5rem' }} />
-        ) : (
-          displayProducts()
-        )}
+        {displayProducts()}
       </Grid>
     </Container>
   );

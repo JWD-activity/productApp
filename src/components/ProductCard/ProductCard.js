@@ -7,8 +7,6 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 
 function ProductCard({ loading, name, imgUrl, price, id }) {
-  console.log('render ProductCard');
-
   return (
     <Grid item xs={12} sm={6} md={4}>
       {!loading ? (

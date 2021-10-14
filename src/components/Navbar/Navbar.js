@@ -19,7 +19,6 @@ function Navbar() {
     useContext(ProductsContext);
 
   const searchChangeHandler = (e) => {
-    console.log(e.target.value.trim());
     setSearchTerm(e.target.value.trim());
   };
 
