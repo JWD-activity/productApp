@@ -5,13 +5,9 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
 
 function ProductCard({ loading, name, imgUrl, price, id }) {
   console.log('render ProductCard');
-  const clickHandler = () => {
-    console.log('click');
-  };
 
   return (
     <Grid item xs={12} sm={6} md={4}>

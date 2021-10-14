@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -10,21 +10,21 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Grid from '@mui/material/Grid';
 import SearchIcon from '@mui/icons-material/Search';
-import { SearchTermContext } from '../../contexts/SearchTermContext';
+import { ProductsContext } from '../../contexts/ProductsContext';
 
-const ariaLabel = { 'aria-label': 'search field' };
+// const ariaLabel = { 'aria-label': 'search field' };
 
 function Navbar() {
   console.log('render Navbar');
-  const { search, setSearchTerm } = useContext(SearchTermContext);
-  const [sorting, setSorting] = useState('');
-  
+  const { search, setSearchTerm, sorting, setSort } =
+    useContext(ProductsContext);
+
   const searchChangeHandler = (e) => {
     setSearchTerm(e.target.value.trim());
   };
 
-  const handleChange = (event) => {
-    setSorting(event.target.value);
+  const sortChangeHandler = (e) => {
+    setSort(e.target.value);
   };
 
   return (
@@ -77,14 +77,14 @@ function Navbar() {
                   id='sort-by-select'
                   value={sorting}
                   label='Sort by'
-                  onChange={handleChange}
+                  onChange={sortChangeHandler}
                   sx={{ minWidth: '20rem' }}
                   color='secondary'
                 >
-                  <MenuItem value={1}>Apphbeically, A-Z</MenuItem>
-                  <MenuItem value={2}>Apphbeically, Z-A</MenuItem>
-                  <MenuItem value={3}>Row Price</MenuItem>
-                  <MenuItem value={34}>High Price</MenuItem>
+                  <MenuItem value={'a-z'}>Apphbeically, A-Z</MenuItem>
+                  <MenuItem value={'z-a'}>Apphbeically, Z-A</MenuItem>
+                  <MenuItem value={'lowToHigh'}>Price, Low to High</MenuItem>
+                  <MenuItem value={'highToLow'}>Price, High to Low</MenuItem>
                 </Select>
               </FormControl>
             </Grid>
