@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -9,13 +10,18 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Grid from '@mui/material/Grid';
 import SearchIcon from '@mui/icons-material/Search';
+import { SearchTermContext } from '../../contexts/SearchTermContext';
 
 const ariaLabel = { 'aria-label': 'search field' };
 
 function Navbar() {
   console.log('render Navbar');
-
-  const [sorting, setSorting] = React.useState('');
+  const { search, setSearchTerm } = useContext(SearchTermContext);
+  const [sorting, setSorting] = useState('');
+  
+  const searchChangeHandler = (e) => {
+    setSearchTerm(e.target.value.trim());
+  };
 
   const handleChange = (event) => {
     setSorting(event.target.value);
@@ -24,13 +30,15 @@ function Navbar() {
   return (
     <AppBar position='static'>
       <Toolbar component='nav'>
-        <Typography
-          variant='h6'
-          component='h1'
-          sx={{ flexGrow: 1, display: 'flex' }}
-        >
-          Products
-        </Typography>
+        <Link to='/'>
+          <Typography
+            variant='h6'
+            component='h1'
+            sx={{ flexGrow: 1, display: 'flex', color: '#fff' }}
+          >
+            Products
+          </Typography>
+        </Link>
         <Grid
           container
           sx={{
@@ -47,6 +55,8 @@ function Navbar() {
                 placeholder='Search'
                 // InputProps={ariaLabel}
                 color='secondary'
+                value={search}
+                onChange={searchChangeHandler}
               />
             </Grid>
             <Grid item>
