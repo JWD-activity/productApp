@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/index.css"],"names":[],"mappings":"AAAA,KACE,eACF,CAEA,KACE,QAAS,CACT,wBACF,CAMA,EACE,oBACF","file":"main.4c37a824.chunk.css","sourcesContent":["html {\n  font-size: 62.5%;\n}\n\nbody {\n  margin: 0;\n  background-color: #f0f2f5;\n}\n\nmain {\n  /* min-height: 90vh; */\n}\n\na {\n  text-decoration: none;\n}\n"]}
