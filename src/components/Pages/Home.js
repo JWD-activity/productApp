@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { ProductsContext } from '../../contexts/ProductsContext';
-import { sortProducts } from '../../utils/sort';
+import { sortProducts, searchProducts } from '../../utils/sort';
 import SearchBar from '../SearchBar/SearchBar';
 import SortBar from '../SortBar/SortBar';
 import Message from '../Message/Message';
@@ -15,25 +15,12 @@ function ProductList() {
   const [searchParam] = useState(['name']);
   const [products, setProducts] = useState([]);
 
-  const searchProducts = (userInput) => {
-    return post.filter((product) => {
-      return searchParam.some((newProduct) => {
-        return (
-          product[newProduct]
-            .toString()
-            .toLowerCase()
-            .indexOf(userInput.toLowerCase()) > -1
-        );
-      });
-    });
-  };
-
   useEffect(() => {
     setProducts(post);
   }, [post]);
 
   useEffect(() => {
-    if (search) setProducts(searchProducts(search));
+    if (search) setProducts(searchProducts(search, searchParam, post));
     else setProducts(post);
   }, [search]);
 

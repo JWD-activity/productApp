@@ -20,3 +20,16 @@ export const sortProducts = (userInput, products) => {
       return products;
   }
 };
+
+export const searchProducts = (userInput, param, data) => {
+  return data.filter((product) => {
+    return param.some((newProduct) => {
+      return (
+        product[newProduct]
+          .toString()
+          .toLowerCase()
+          .indexOf(userInput.toLowerCase()) > -1
+      );
+    });
+  });
+};

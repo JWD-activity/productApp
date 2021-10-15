@@ -8,7 +8,7 @@ function SearchBar() {
   const { search, setSearchTerm } = useContext(ProductsContext);
 
   const searchChangeHandler = (e) => {
-    setSearchTerm(e.target.value.trim());
+    setSearchTerm(e.target.value);
   };
 
   return (
