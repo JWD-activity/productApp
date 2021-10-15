@@ -17,7 +17,7 @@ function Navbar() {
   return (
     <AppBar position='static'>
       <Toolbar component='nav'>
-        <Link to='/productApp' onClick={clickHandler}>
+        <Link to={process.env.PUBLIC_URL + '/'} onClick={clickHandler}>
           <Typography variant='h6' component='h1' color='text.primary'>
             Products
           </Typography>

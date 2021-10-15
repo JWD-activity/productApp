@@ -14,10 +14,10 @@ function App() {
     <ThemeProvider theme={theme}>
       <ProductsContextProvider>
         <Navbar />
-        <Route exact path='/productApp'>
+        <Route exact path={process.env.PUBLIC_URL + '/'}>
           <Home />
         </Route>
-        <Route path='/:id'>
+        <Route path={process.env.PUBLIC_URL + '/product/:id'}>
           <Details />
         </Route>
         <Footer />
