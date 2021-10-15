@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import './App.css';
 import { ThemeProvider } from '@mui/material';
 import theme from './assets/style/theme';
 import Navbar from './components/Navbar/Navbar';

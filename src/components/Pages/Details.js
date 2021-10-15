@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchDetails } from '../../utils/fetchingData';
-import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import CircularProgress from '@mui/material/CircularProgress';
 import Stack from '@mui/material/Stack';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+import { URL } from '../../utils/constants';
+import axios from 'axios';
 
 function Details() {
   const { id } = useParams();
@@ -13,7 +14,8 @@ function Details() {
 
   useEffect(() => {
     const getDtails = async () => {
-      setDetails(await fetchDetails(id));
+      const res = await axios.get(`${URL}/${id}`);
+      setDetails(res.data);
     };
     getDtails();
   }, []);

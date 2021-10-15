@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { ProductsContext } from '../../contexts/ProductsContext';
+import { sortProducts } from '../../utils/sort';
 import SearchBar from '../SearchBar/SearchBar';
 import SortBar from '../SortBar/SortBar';
 import ProductCard from '../ProductCard/ProductCard';
@@ -28,29 +29,6 @@ function ProductList() {
     });
   };
 
-  const sortProducts = (userInput) => {
-    switch (userInput) {
-      case 'a-z':
-        return products.sort((a, b) =>
-          a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1
-        );
-
-      case 'z-a':
-        return products.sort((a, b) =>
-          a.name.toLowerCase() < b.name.toLowerCase() ? 1 : -1
-        );
-
-      case '9-0':
-        return products.sort((a, b) => Number(b.price) - Number(a.price));
-
-      case '0-9':
-        return products.sort((a, b) => Number(a.price) - Number(b.price));
-
-      default:
-        return products;
-    }
-  };
-
   useEffect(() => {
     setProducts(post);
   }, [post]);
@@ -61,7 +39,7 @@ function ProductList() {
   }, [search]);
 
   const displayProducts = () => {
-    let results = sortProducts(sorting);
+    let results = sortProducts(sorting, products);
 
     if (loading) {
       return <CircularProgress color='secondary' />;
