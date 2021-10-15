@@ -36,9 +36,27 @@
 
 ### What I learned
 ### Screenshot
-- Desktop: 1440px
+
+- Home Page
+
+![main](https://user-images.githubusercontent.com/83196262/137465902-3f5f43d7-779f-4c25-99fb-02fabcb6244e.png)
+
+- Search Products
+
+![search](https://user-images.githubusercontent.com/83196262/137465931-555e7f3c-71b0-45ed-809a-969d472223a4.png)
+
+- Display search results ("No search results found" message)
+
+![result](https://user-images.githubusercontent.com/83196262/137465944-cf818db4-d5bd-4c44-a8ad-77bfa83d7a80.png)
+
+- Sort Products
+
+![sort](https://user-images.githubusercontent.com/83196262/137465971-e23fd731-b886-4d68-ad52-d796e1318903.png)
+
+- Display product details
+
+![details](https://user-images.githubusercontent.com/83196262/137465988-7ccdcd2a-ac93-4f7c-98f7-f502d7ff2c3b.png)
 
 
-- Mobile: 375px
 
 
