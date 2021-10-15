@@ -27,11 +27,7 @@ function ProductList() {
       });
     });
   };
-  //https://soshace.com/filtering-sorting-and-pagination-advanced-filtering-with-react-and-redux/
 
-  //https://stackoverflow.com/questions/7889006/sorting-arrays-in-javascript-by-object-key-value
-
-  //https://dev.to/ramonak/react-how-to-dynamically-sort-an-array-of-objects-using-the-dropdown-with-react-hooks-195p
   const sortProducts = (userInput) => {
     switch (userInput) {
       case 'a-z':
@@ -68,7 +64,7 @@ function ProductList() {
     let results = sortProducts(sorting);
 
     if (loading) {
-      return <CircularProgress color='secondary' sx={{ padding: '5rem' }} />;
+      return <CircularProgress color='secondary' sx={{ p: '5rem' }} />;
     }
 
     if (!loading && results.length > 0) {
@@ -86,7 +82,7 @@ function ProductList() {
 
     if (!loading && results.length === 0) {
       return (
-        <Alert severity='info' sx={{ margin: '5rem' }}>
+        <Alert severity='info' sx={{ m: '5rem' }}>
           <AlertTitle>Search results</AlertTitle>
           Sorry We couldn't find any results —{' '}
           <strong>No results found.</strong>
@@ -97,19 +93,20 @@ function ProductList() {
 
   return (
     <Container component='main'>
-      <Grid container>
-        <Grid item>
+      <Grid container sx={{ m: '4rem 0', justifyContent: 'end' }}>
+        <Grid item sx={{ mr: '2rem' }}>
           <SearchBar />
         </Grid>
         <Grid item>
           <SortBar />
         </Grid>
       </Grid>
+
       <Grid
         container
         spacing={{ xs: 6, sm: 8, lg: 10 }}
         columns={12}
-        sx={{ justifyContent: 'center' }}
+        component='section'
       >
         {displayProducts()}
       </Grid>

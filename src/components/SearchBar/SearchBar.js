@@ -12,20 +12,18 @@ function SearchBar() {
     setSearchTerm(e.target.value.trim());
   };
   return (
-    <Container>
-      <Input
-        placeholder='Search'
-        // InputProps={ariaLabel}
-        color='secondary'
-        value={search}
-        onChange={searchChangeHandler}
-        startAdornment={
-          <InputAdornment position='start'>
-            <SearchIcon />
-          </InputAdornment>
-        }
-      />
-    </Container>
+    <Input
+      placeholder='Search'
+      // InputProps={ariaLabel}
+      color='secondary'
+      value={search}
+      onChange={searchChangeHandler}
+      startAdornment={
+        <InputAdornment position='start'>
+          <SearchIcon />
+        </InputAdornment>
+      }
+    />
   );
 }
 

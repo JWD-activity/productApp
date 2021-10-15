@@ -16,13 +16,13 @@ function ProductCard({ loading, name, imgUrl, price, id }) {
             <CardContent>
               <Typography
                 gutterBottom
-                variant='h1'
-                component='div'
+                variant='h6'
+                component='h1'
                 color='primary'
               >
                 {name}
               </Typography>
-              <Typography variant='body2' color='text.secondary'>
+              <Typography variant='h2' color='text.secondary'>
                 {`$${price}`}
               </Typography>
             </CardContent>
