@@ -76,11 +76,11 @@ function ProductList() {
         component='section'
         sx={{ justifyContent: 'center', pt: '11rem' }}
       >
-        <Grid container sx={{ justifyContent: 'end' }}>
-          <Grid item sx={{ mr: '2rem' }}>
+        <Grid container sx={{ justifyContent: 'end' }} spacing={2}>
+          <Grid item sx={{ mb: '.5rem' }}>
             <SearchBar />
           </Grid>
-          <Grid item>
+          <Grid item sx={{ mb: '.5rem' }}>
             <SortBar />
           </Grid>
         </Grid>
