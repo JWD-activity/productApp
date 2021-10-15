@@ -10,7 +10,7 @@ export function fetchingReducer(state, action) {
     case 'FETCH_ERROR':
       return {
         loading: false,
-        error: 'Something went wrong!',
+        error: 'Something went wrong! Try again.',
         post: {},
       };
 

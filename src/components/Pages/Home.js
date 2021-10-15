@@ -9,10 +9,11 @@ import AlertTitle from '@mui/material/AlertTitle';
 import Container from '@mui/material/Container';
 import CircularProgress from '@mui/material/CircularProgress';
 import Grid from '@mui/material/Grid';
+import Message from '../Message/Message';
 
 function ProductList() {
   const { state, search, sorting } = useContext(ProductsContext);
-  const { post, loading } = state;
+  const { post, loading, error } = state;
   const [searchParam] = useState(['name']);
   const [products, setProducts] = useState([]);
 
@@ -41,11 +42,20 @@ function ProductList() {
   const displayProducts = () => {
     let results = sortProducts(sorting, products);
 
-    if (loading) {
-      return <CircularProgress color='secondary' />;
-    }
+    if (loading) return <CircularProgress color='secondary' />;
 
-    if (!loading && results.length > 0) {
+    if (error) return <Message status='error' title='Error' message={error} />;
+
+    if (search && results.length === 0)
+      return (
+        <Message
+          status='info'
+          title='Search results'
+          message='Sorry No results found.'
+        />
+      );
+
+    if (!loading && results) {
       return results.map((product) => (
         <ProductCard
           key={product._id}
@@ -56,28 +66,6 @@ function ProductList() {
           loading={loading}
         />
       ));
-    }
-
-    if (!loading && results.length === 0) {
-      return (
-        <Grid
-          container
-          item
-          sx={{
-            backgroundColor: '#E5F6FD',
-            justifyContent: 'center',
-            alignItems: 'center',
-            py: '5rem',
-            my: '5rem',
-          }}
-        >
-          <Alert severity='info'>
-            <AlertTitle>Search results</AlertTitle>
-            Sorry We couldn't find any results —{' '}
-            <strong>No results found.</strong>
-          </Alert>
-        </Grid>
-      );
     }
   };
 
