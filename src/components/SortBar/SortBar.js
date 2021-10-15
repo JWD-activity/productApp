@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
+import { ProductsContext } from '../../contexts/ProductsContext';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { ProductsContext } from '../../contexts/ProductsContext';
 
 function SortBar() {
   const { sorting, setSort } = useContext(ProductsContext);

@@ -3,13 +3,11 @@ import { ProductsContext } from '../../contexts/ProductsContext';
 import { sortProducts } from '../../utils/sort';
 import SearchBar from '../SearchBar/SearchBar';
 import SortBar from '../SortBar/SortBar';
+import Message from '../Message/Message';
 import ProductCard from '../ProductCard/ProductCard';
-import Alert from '@mui/material/Alert';
-import AlertTitle from '@mui/material/AlertTitle';
 import Container from '@mui/material/Container';
 import CircularProgress from '@mui/material/CircularProgress';
 import Grid from '@mui/material/Grid';
-import Message from '../Message/Message';
 
 function ProductList() {
   const { state, search, sorting } = useContext(ProductsContext);

@@ -1,6 +1,6 @@
 import React, { createContext, useReducer, useEffect, useState } from 'react';
-import { fetchingReducer } from '../reducers/fetchingReducer';
 import axios from 'axios';
+import { fetchingReducer } from '../reducers/fetchingReducer';
 import { URL, INIT_STATE } from '../utils/constants';
 
 export const ProductsContext = createContext();

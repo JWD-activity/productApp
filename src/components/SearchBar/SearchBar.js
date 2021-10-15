@@ -1,9 +1,8 @@
 import React, { useContext } from 'react';
+import { ProductsContext } from '../../contexts/ProductsContext';
 import InputAdornment from '@mui/material/InputAdornment';
 import Input from '@mui/material/Input';
 import SearchIcon from '@mui/icons-material/Search';
-import Container from '@mui/material/Container';
-import { ProductsContext } from '../../contexts/ProductsContext';
 
 function SearchBar() {
   const { search, setSearchTerm } = useContext(ProductsContext);
@@ -11,6 +10,7 @@ function SearchBar() {
   const searchChangeHandler = (e) => {
     setSearchTerm(e.target.value.trim());
   };
+
   return (
     <Input
       placeholder='Search'

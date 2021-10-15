@@ -29,7 +29,6 @@ function Details() {
   }, []);
 
   const displayDetails = () => {
-    console.log(loading, details);
     if (loading) return <CircularProgress color='secondary' />;
 
     if (error) return <Message status='error' title='Error' message={error} />;
