@@ -1,11 +1,13 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { ProductsContext } from '../../contexts/ProductsContext';
+import SearchBar from '../SearchBar/SearchBar';
+import SortBar from '../SortBar/SortBar';
 import ProductCard from '../ProductCard/ProductCard';
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
 import CircularProgress from '@mui/material/CircularProgress';
+import Grid from '@mui/material/Grid';
 
 function ProductList() {
   const { state, search, sorting } = useContext(ProductsContext);
@@ -42,10 +44,10 @@ function ProductList() {
           a.name.toLowerCase() < b.name.toLowerCase() ? 1 : -1
         );
 
-      case 'highToLow':
+      case '9-0':
         return products.sort((a, b) => Number(b.price) - Number(a.price));
 
-      case 'lowToHigh':
+      case '0-9':
         return products.sort((a, b) => Number(a.price) - Number(b.price));
 
       default:
@@ -95,6 +97,14 @@ function ProductList() {
 
   return (
     <Container component='main'>
+      <Grid container>
+        <Grid item>
+          <SearchBar />
+        </Grid>
+        <Grid item>
+          <SortBar />
+        </Grid>
+      </Grid>
       <Grid
         container
         spacing={{ xs: 6, sm: 8, lg: 10 }}

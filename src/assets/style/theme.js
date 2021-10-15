@@ -24,7 +24,6 @@ const theme = createTheme({
     secondary: { main: '#AE1FEB' },
     text: {
       primary: '#fff',
-      secondary: 'hsl(218, 22%, 67%)',
     },
   },
   components: {
@@ -50,7 +49,13 @@ const theme = createTheme({
     MuiSelect: {
       styleOverrides: {
         icon: {
-          color: '#fff',
+          color: '#0A0C1B',
+        },
+        filled: {
+          backgroundColor: '#fff',
+          borderRadius: '.5rem',
+          fontWeight: 400,
+          color: '#0A0C1B',
         },
       },
     },

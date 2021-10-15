@@ -6,6 +6,7 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import CircularProgress from '@mui/material/CircularProgress';
+import Button from '@mui/material/Button';
 
 const useStyles = makeStyles({
   img: {
@@ -41,16 +42,39 @@ function Details() {
               className={classes.img}
             />
           </Grid>
-          <Grid container item xs={12} sm={6} md={8}>
-            <Typography variant='h1' component='h1' color='primary'>
-              {details.name}
-            </Typography>
-            <Typography variant='h5' component='h2' color='text.secondary'>
-              ${details.price}
-            </Typography>
-            <Typography variant='body1' component='p' color='primary'>
-              {details.description}
-            </Typography>
+          <Grid
+            container
+            item
+            xs={12}
+            sm={6}
+            md={8}
+            sx={{ flexDirection: 'column' }}
+          >
+            <Grid item>
+              <Typography
+                variant='h1'
+                component='h1'
+                color='primary'
+                sx={{ marginBottom: '3rem' }}
+              >
+                {details.name}
+              </Typography>
+            </Grid>
+            <Grid item>
+              <Typography
+                variant='h5'
+                component='h2'
+                color='text.secondary'
+                sx={{ marginBottom: '3rem' }}
+              >
+                ${details.price}
+              </Typography>
+            </Grid>
+            <Grid item>
+              <Typography variant='body1' component='p' color='primary'>
+                {details.description}
+              </Typography>
+            </Grid>
           </Grid>
         </Grid>
       )}
