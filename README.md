@@ -1,5 +1,5 @@
 # ProductApp (productApp_ver01)
-[Click here to view the website](https://jwd-activity.github.io/productAPP/)
+[Click here to view the website](https://jwd-activity.github.io/productApp/)
 
 ## Description
 ### The challenge
