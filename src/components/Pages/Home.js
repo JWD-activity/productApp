@@ -64,7 +64,7 @@ function ProductList() {
     let results = sortProducts(sorting);
 
     if (loading) {
-      return <CircularProgress color='secondary' sx={{ p: '5rem' }} />;
+      return <CircularProgress color='secondary' />;
     }
 
     if (!loading && results.length > 0) {
@@ -82,32 +82,45 @@ function ProductList() {
 
     if (!loading && results.length === 0) {
       return (
-        <Alert severity='info' sx={{ m: '5rem' }}>
-          <AlertTitle>Search results</AlertTitle>
-          Sorry We couldn't find any results —{' '}
-          <strong>No results found.</strong>
-        </Alert>
+        <Grid
+          container
+          item
+          sx={{
+            backgroundColor: '#E5F6FD',
+            justifyContent: 'center',
+            alignItems: 'center',
+            py: '5rem',
+            my: '5rem',
+          }}
+        >
+          <Alert severity='info'>
+            <AlertTitle>Search results</AlertTitle>
+            Sorry We couldn't find any results —{' '}
+            <strong>No results found.</strong>
+          </Alert>
+        </Grid>
       );
     }
   };
 
   return (
     <Container component='main'>
-      <Grid container sx={{ m: '4rem 0', justifyContent: 'end' }}>
-        <Grid item sx={{ mr: '2rem' }}>
-          <SearchBar />
-        </Grid>
-        <Grid item>
-          <SortBar />
-        </Grid>
-      </Grid>
-
       <Grid
         container
-        spacing={{ xs: 6, sm: 8, lg: 10 }}
+        spacing={{ xs: 6, sm: 7 }}
         columns={12}
         component='section'
+        sx={{ justifyContent: 'center', pt: '11rem' }}
       >
+        <Grid container sx={{ justifyContent: 'end' }}>
+          <Grid item sx={{ mr: '2rem' }}>
+            <SearchBar />
+          </Grid>
+          <Grid item>
+            <SortBar />
+          </Grid>
+        </Grid>
+
         {displayProducts()}
       </Grid>
     </Container>
