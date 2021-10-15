@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 function ProductCard({ name, imgUrl, price, id }) {
   return (
     <Grid item xs={12} sm={6} md={4}>
-      <Link to={`/product/${id}`}>
+      <Link to={`${process.env.PUBLIC_URL}/product/${id}`}>
         <Card>
           <CardMedia component='img' height='200' image={imgUrl} alt={name} />
           <CardContent>
