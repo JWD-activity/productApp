@@ -14,10 +14,10 @@ function App() {
     <ThemeProvider theme={theme}>
       <ProductsContextProvider>
         <Navbar />
-        <Route exact path='/'>
+        <Route exact path='/productApp'>
           <Home />
         </Route>
-        <Route path='/product/:id'>
+        <Route path='/productApp/product/:id'>
           <Details />
         </Route>
         <Footer />
