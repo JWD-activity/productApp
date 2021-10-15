@@ -34,7 +34,6 @@
   - Conditional Rendering of Components
   - Hooks: useState, useContext, useReducer, useEffect
 
-### What I learned
 ### Screenshot
 
 - Home Page
