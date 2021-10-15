@@ -5,6 +5,7 @@ import theme from './assets/style/theme';
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/Pages/Home';
 import Details from './components/Pages/Details';
+import Footer from './components/Footer/Footer';
 import ProductsContextProvider from './contexts/ProductsContext';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path='/product/:id'>
           <Details />
         </Route>
+        <Footer />
       </ProductsContextProvider>
     </ThemeProvider>
   );
